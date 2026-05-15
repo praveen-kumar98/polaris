@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.4.15/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -27,10 +27,81 @@
       "react": "recommended"
     }
   },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
   "assist": {
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              {
+                "type": false,
+                "source": ":NODE:"
+              },
+              {
+                "type": true,
+                "source": ":NODE:"
+              },
+              ":BLANK_LINE:",
+              {
+                "type": false,
+                "source": ["next", "next/**"]
+              },
+              {
+                "type": true,
+                "source": ["next", "next/**"]
+              },
+              {
+                "type": false,
+                "source": ["react", "react/**", "react-*"]
+              },
+              {
+                "type": true,
+                "source": ["react", "react/**", "react-*"]
+              },
+              ":BLANK_LINE:",
+              {
+                "type": false,
+                "source": ":PACKAGE:"
+              },
+              {
+                "type": false,
+                "source": ":PACKAGE_WITH_PROTOCOL:"
+              },
+              {
+                "type": true,
+                "source": ":PACKAGE:"
+              },
+              {
+                "type": true,
+                "source": ":PACKAGE_WITH_PROTOCOL:"
+              },
+              ":BLANK_LINE:",
+              {
+                "type": false,
+                "source": ":ALIAS:"
+              },
+              {
+                "type": true,
+                "source": ":ALIAS:"
+              },
+              ":BLANK_LINE:",
+              {
+                "type": false,
+                "source": ":PATH:"
+              },
+              {
+                "type": true,
+                "source": ":PATH:"
+              }
+            ]
+          }
+        }
       }
     }
   }
