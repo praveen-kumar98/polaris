@@ -5,8 +5,8 @@ import { Authenticated, AuthLoading, Unauthenticated } from "convex/react";
 
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { AuthLoadingView } from "@/features/auth/compoennts/auth-loading-view";
-import { UnauthenticatedView } from "@/features/auth/compoennts/unauthenticated-view";
+import { AuthLoadingView } from "@/features/auth/compoenents/auth-loading-view";
+import { UnauthenticatedView } from "@/features/auth/compoenents/unauthenticated-view";
 
 import { ConvexClientProvider } from "./convex-client-provider";
 import { ThemeProvider } from "./theme-provider";
