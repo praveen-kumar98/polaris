@@ -1,16 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
-
-import { ClerkProvider } from "@clerk/nextjs";
-import { Authenticated, AuthLoading, Unauthenticated } from "convex/react";
-
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { AuthLoadingView } from "@/features/auth/compoennts/auth-loading-view";
-import { UnauthenticatedView } from "@/features/auth/compoennts/unauthenticated-view";
-import { ConvexClientProvider } from "@/providers/convex-client-provider";
-import { ThemeProvider } from "@/providers/theme-provider";
+import { Providers } from "@/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,22 +30,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <ClerkProvider>
-          <ConvexClientProvider>
-            <ThemeProvider>
-              <TooltipProvider>
-                <Authenticated>{children}</Authenticated>
-                <AuthLoading>
-                  <AuthLoadingView />
-                </AuthLoading>
-                <Unauthenticated>
-                  <UnauthenticatedView />
-                </Unauthenticated>
-              </TooltipProvider>
-              <Toaster />
-            </ThemeProvider>
-          </ConvexClientProvider>
-        </ClerkProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
