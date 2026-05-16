@@ -6,6 +6,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 <!-- convex-ai-start -->
 
+<!-- AGENT: name=convex-backend, role=Convex backend specialist, capabilities=[read DB, write DB, invoke Convex functions, run skills], triggers=[Convex code, convex/*, database queries, convex dev], allowed-side-effects=[DB writes, function calls, skill invocations] -->
+
 This project uses [Convex](https://convex.dev) as its backend.
 
 When working on Convex code, **always read
