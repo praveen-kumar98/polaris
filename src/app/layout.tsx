@@ -3,9 +3,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
+import { Authenticated, AuthLoading, Unauthenticated } from "convex/react";
 
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { AuthLoadingView } from "@/features/auth/compoennts/auth-loading-view";
+import { UnauthenticatedView } from "@/features/auth/compoennts/unauthenticated-view";
 import { ConvexClientProvider } from "@/providers/convex-client-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 
@@ -39,7 +42,15 @@ export default function RootLayout({
         <ClerkProvider>
           <ConvexClientProvider>
             <ThemeProvider>
-              <TooltipProvider>{children}</TooltipProvider>
+              <TooltipProvider>
+                <Authenticated>{children}</Authenticated>
+                <AuthLoading>
+                  <AuthLoadingView />
+                </AuthLoading>
+                <Unauthenticated>
+                  <UnauthenticatedView />
+                </Unauthenticated>
+              </TooltipProvider>
               <Toaster />
             </ThemeProvider>
           </ConvexClientProvider>
